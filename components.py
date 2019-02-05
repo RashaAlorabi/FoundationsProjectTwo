@@ -75,14 +75,11 @@ class Cart():
         """
         # your code goes here!
         for product in self.products:
-            print ("%s, %s, %s" % (product.name,product.description,product.price))
-        total = self.get_total_price()
-        print ("yout total price is : %s" % total)
+            print (product)
+        print("the total price is %s"%(self.get_total_price()))
+    
 
         
-
-
-
     def checkout(self):
         """
         Does the checkout.
