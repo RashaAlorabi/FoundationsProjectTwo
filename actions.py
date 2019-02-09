@@ -22,9 +22,8 @@ def get_store(store_name):
     # your code goes here!
     for store in stores :
         if store_name == store.name :
-            return store
-        else:
-            return False
+            return store    
+    return False
 
 def pick_store():
     """
@@ -33,15 +32,16 @@ def pick_store():
     # your code goes here!
     print_stores()
 
-    user_input = input("Pick a store by typing its name Or type checkout to pay your bills ")
-    while (user_input != "checkout"):
-        if get_store(user_input):
+    
+    while True :
+        user_input = input("Pick a store by typing its name Or type checkout to pay your bills ")
+        if user_input == 'checkout':
+            return "checkout"
+        elif get_store(user_input):
             return get_store(user_input)
         else :
-             user_input =input("invaild store name please try again")
-    return "checkout"
-
-
+             print("invaild store name please try again")
+    
 def pick_products(cart, picked_store):
     """
     prints list of products and prompts user to add products to card.
@@ -54,7 +54,7 @@ def pick_products(cart, picked_store):
         for product in picked_store.products:
             if product.name == my_product:
                 cart.add_to_cart(product)
-        my_product = input ("what else would you like to add")        
+        my_product = input ("what else would you like to add ")        
 
     
 
